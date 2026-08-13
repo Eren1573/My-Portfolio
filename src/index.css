@@ -6,18 +6,54 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-serif: 'Georgia', serif;
   --font-mono: 'Courier New', Courier, monospace;
+}
 
+:root {
+  /* Light Mode Variables */
+  --color-bg-deep: #f0f4f8; 
+  --color-bg-atmosphere-1: #e1e7f0;
+  --color-bg-atmosphere-2: #d1dae5;
+  --color-cyan: #0284c7; 
+  --color-cyan-dim: rgba(2, 132, 199, 0.2);
+  --color-cyan-dimmer: rgba(2, 132, 199, 0.1);
+  --color-cyan-shadow: rgba(2, 132, 199, 0.4);
+  --color-text-main: #0f172a;
+  --color-text-dim: rgba(15, 23, 42, 0.65);
+  --color-glass: rgba(255, 255, 255, 0.6);
+  --color-glass-border: rgba(15, 23, 42, 0.1);
+  --color-accent-glow: rgba(2, 132, 199, 0.15);
+  --color-nav-bg: rgba(240, 244, 248, 0.85);
+  
+  --color-purple: #9333ea;
+  --color-purple-light: #c084fc;
+}
+
+.dark {
+  /* Dark Mode Variables */
   --color-bg-deep: #05070a;
+  --color-bg-atmosphere-1: #1a1e30;
+  --color-bg-atmosphere-2: #0d1b2a;
   --color-cyan: #4fd1c5;
+  --color-cyan-dim: rgba(79, 209, 197, 0.2);
+  --color-cyan-dimmer: rgba(79, 209, 197, 0.1);
+  --color-cyan-shadow: rgba(79, 209, 197, 0.4);
   --color-text-main: #ffffff;
   --color-text-dim: rgba(255, 255, 255, 0.6);
   --color-glass: rgba(255, 255, 255, 0.03);
   --color-glass-border: rgba(255, 255, 255, 0.08);
   --color-accent-glow: rgba(79, 209, 197, 0.4);
+  --color-nav-bg: rgba(13, 19, 26, 0.8);
+  
+  --color-purple: #a855f7;
+  --color-purple-light: #d8b4fe;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,6 +64,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Base custom styles */
@@ -36,8 +73,9 @@ body {
   top: 0; left: 0; width: 100%; height: 100%;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 70% 30%, #1a1e30 0%, transparent 40%),
-              radial-gradient(circle at 20% 80%, #0d1b2a 0%, transparent 40%);
+  background: radial-gradient(circle at 70% 30%, var(--color-bg-atmosphere-1) 0%, transparent 40%),
+              radial-gradient(circle at 20% 80%, var(--color-bg-atmosphere-2) 0%, transparent 40%);
+  transition: background 0.3s ease;
 }
 
 .glow-orb {
@@ -51,12 +89,14 @@ body {
   transform: translate(-50%, -50%);
   opacity: 0.3;
   pointer-events: none;
+  transition: background 0.3s ease;
 }
 
 .glass-panel {
   background: var(--color-glass);
   border: 1px solid var(--color-glass-border);
   backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
 }
 
 .glass-card {
@@ -67,15 +107,15 @@ body {
 }
 
 .glass-card:hover {
-  border-color: rgba(79, 209, 197, 0.4);
-  background: rgba(79, 209, 197, 0.08);
+  border-color: var(--color-cyan-shadow);
+  background: var(--color-cyan-dimmer);
   transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(79, 209, 197, 0.15);
+  box-shadow: 0 16px 40px var(--color-accent-glow);
 }
 
 .glow-text {
   color: var(--color-cyan);
-  text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+  text-shadow: 0 0 15px var(--color-cyan-shadow);
 }
 
 .nav-icon {
@@ -85,15 +125,15 @@ body {
   display: flex; align-items: center; justify-content: center;
   opacity: 0.7;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--color-glass);
 }
 
 .nav-icon:hover {
   border-color: var(--color-cyan);
   color: var(--color-cyan);
   opacity: 1;
-  background: rgba(79, 209, 197, 0.1);
-  box-shadow: 0 0 15px rgba(79, 209, 197, 0.3);
+  background: var(--color-cyan-dimmer);
+  box-shadow: 0 0 15px var(--color-cyan-shadow);
   transform: scale(1.05);
 }
 

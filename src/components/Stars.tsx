@@ -19,7 +19,7 @@ export const Stars = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute rounded-full bg-white opacity-0 animate-star-drift"
+          className="absolute rounded-full bg-[var(--color-text-main)] opacity-0 animate-star-drift"
           style={{
             top: star.top,
             right: '-10%',

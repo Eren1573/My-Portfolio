@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Github } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export const Projects = ({ hideViewAll = false }: { hideViewAll?: boolean }) => {
   const featuredProjects = [
@@ -91,8 +90,8 @@ export const Projects = ({ hideViewAll = false }: { hideViewAll?: boolean }) => 
   return (
     <section id="projects" className={`${hideViewAll ? 'py-8' : 'min-h-screen py-24'} px-8 md:px-24 relative z-10 flex flex-col justify-center`}>
       <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-4 text-white">
-          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4fd1c5] to-[#b3cde0]">Projects</span>
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-4 text-[var(--color-text-main)]">
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-cyan)] to-[var(--color-purple-light)]">Projects</span>
         </h2>
         <p className="text-center text-[var(--color-text-dim)] mb-16 max-w-2xl mx-auto text-sm uppercase tracking-[4px]">
            A selection of my recent work showcasing algorithmic problem solving and web development
@@ -109,7 +108,7 @@ export const Projects = ({ hideViewAll = false }: { hideViewAll?: boolean }) => 
               className="glass-card p-6 flex flex-col group relative"
             >
               <div className="text-[10px] uppercase tracking-[2px] text-[var(--color-cyan)] font-semibold mb-3 tracking-widest">{project.type}</div>
-              <h3 className="text-xl mb-4 font-sans text-white font-bold">{project.title}</h3>
+              <h3 className="text-xl mb-4 font-sans text-[var(--color-text-main)] font-bold">{project.title}</h3>
               <p className="text-[var(--color-text-dim)] mb-6 text-sm leading-relaxed whitespace-pre-wrap">{project.description}</p>
               
               <ul className="list-disc list-inside text-[var(--color-text-dim)] text-xs mb-8 space-y-2 opacity-80 flex-grow">
@@ -127,7 +126,7 @@ export const Projects = ({ hideViewAll = false }: { hideViewAll?: boolean }) => 
                   ))}
                 </div>
                 <div className="flex items-center w-full mt-2">
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--color-cyan)] text-sm font-medium hover:text-white transition-colors">
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--color-cyan)] text-sm font-medium hover:text-[var(--color-text-main)] transition-colors">
                     <Github size={18} /> Source Code
                   </a>
                 </div>
@@ -135,14 +134,6 @@ export const Projects = ({ hideViewAll = false }: { hideViewAll?: boolean }) => 
             </motion.div>
           ))}
         </div>
-        
-        {!hideViewAll && (
-          <div className="text-center mt-16">
-            <Link to="/projects" className="inline-block px-10 py-4 glass-panel rounded-full text-[var(--color-text-dim)] hover:border-[var(--color-cyan)] hover:text-[var(--color-cyan)] transition-all uppercase tracking-[2px] text-sm font-bold shadow-lg hover:shadow-[var(--color-accent-glow)]">
-              VIEW ALL PROJECTS
-            </Link>
-          </div>
-        )}
       </div>
     </section>
   );

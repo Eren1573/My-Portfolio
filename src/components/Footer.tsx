@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mail, Phone, Github, Linkedin, ArrowUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export const Footer = () => (
   <footer className="bg-transparent border-t border-white/10 pt-16 pb-8 px-8 md:px-24 text-[var(--color-text-dim)] text-sm relative z-10">
@@ -13,15 +12,14 @@ export const Footer = () => (
         <h4 className="text-white font-bold mb-4">Quick Links</h4>
         <ul className="space-y-3">
           {[
-            {name: 'Home', path: '/'}, 
-            {name: 'About', path: '/about'}, 
-            {name: 'Experience', path: '/experience'}, 
-            {name: 'Projects', path: '/projects'}, 
-            {name: 'Blog', path: '/blog'}, 
-            {name: 'Contact', path: '/contact'}
+            {name: 'Home', path: 'home'}, 
+            {name: 'About', path: 'about'}, 
+            {name: 'Experience', path: 'experience'}, 
+            {name: 'Projects', path: 'projects'}, 
+            {name: 'Contact', path: 'contact'}
           ].map(link => (
             <li key={link.name}>
-              <Link to={link.path} className="hover:text-[var(--color-cyan)] transition-colors">{link.name}</Link>
+              <a href={`#${link.path}`} className="hover:text-[var(--color-cyan)] transition-colors">{link.name}</a>
             </li>
           ))}
         </ul>
