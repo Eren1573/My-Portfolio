@@ -56,7 +56,7 @@ export const About = () => (
 
           {/* Resume Link */}
           <motion.a
-            href="https://drive.google.com/file/d/1BUfGCc2Reb66Dm_qU15ADigSHSqQ30So/view?usp=sharing"
+            href="https://drive.google.com/file/d/1jZoaE9GXXth8xs8qWWNSK_eLac049LAd/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
